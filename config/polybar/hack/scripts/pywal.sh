@@ -16,7 +16,7 @@ change_color() {
 	sed -i -e "s/background = #.*/background = $BG/g" $PFILE
 	sed -i -e "s/foreground = #.*/foreground = $FG/g" $PFILE
 	sed -i -e "s/primary = #.*/primary = $AC/g" $PFILE
-	
+
 	# rofi
 	cat > $RFILE <<- EOF
 	/* colors */
@@ -29,7 +29,7 @@ change_color() {
 	  fg:    ${FG}FF;
 	}
 	EOF
-	
+
 	polybar-msg cmd restart
 }
 

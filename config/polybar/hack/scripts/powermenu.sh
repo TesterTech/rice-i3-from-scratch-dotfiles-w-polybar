@@ -5,10 +5,10 @@
 ## Github  : @adi1090x
 ## Twitter : @adi1090x
 
-dir="~/.config/polybar/hack/scripts/rofi"
-uptime=$(uptime -p | sed -e 's/up //g')
+dir="~/.config/rofi"
+uptime=$(uptime |  awk '{print $3}' | rev | cut -c2- | rev)
 
-rofi_command="rofi -no-config -theme $dir/powermenu.rasi"
+rofi_command="rofi -no-config -theme $dir/launcher.rasi"
 
 # Options
 shutdown=" Shutdown"
@@ -29,7 +29,7 @@ confirm_exit() {
 
 # Message
 msg() {
-	rofi -no-config -theme "$dir/message.rasi" -e "Available Options  -  yes / y / no / n"
+	rofi -no-config -theme "$dir/confirm.rasi" -e "Available Options  -  yes / y / no / n"
 }
 
 # Variable passed to rofi
